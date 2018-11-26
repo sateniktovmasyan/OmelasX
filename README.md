@@ -1,6 +1,6 @@
-# OmelasX
 
-Final Project, Data Structures and Algorithms
+
+# OmelasX
 
 Who? Any scholar who uses flashcards during academic year.
 
