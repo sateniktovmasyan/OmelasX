@@ -7,7 +7,9 @@ When? By the end of the semester
 What? A software program
 How? Using data structures, OOP, written in python
 
-Overview
+## Overview
+It is known that one of the best ways to learn new definitions is through flashcards, but they are not always as efficient as they seem to be. 
+
 Any scholar who was used to make paper based flashcards would use this program in order to economy his time and materials on making digital flashcards. The program will let the user to delete, change any chosen flashcard easily. Also, practice session may be whenever and wherever the user wants in order if the computer is with the user.
 
 
