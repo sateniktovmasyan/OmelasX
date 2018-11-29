@@ -5,8 +5,8 @@ class Card:
         self.next = None
 
 class Cards_Set:
-    def __init__(self, head):
-        self._head = head
+    def __init__(self):
+        self._head = None
 
     def sethead(self):
         return self._head
@@ -15,31 +15,31 @@ class Cards_Set:
         return self._head
 
     def append(self, data, data2):
-        new_node = Card(data == raw_input(), data2 == raw_input())
+        new_node = Card(data, data2)
+        if self._head is None:
+            self._head = new_node
+            return new_node
 
-        if self.head is None:
-            self.head = new_node
-            return
-
-        last_node = self.head
+        last_node = self._head
         while last_node.next:
             last_node = last_node.next
         last_node.next = new_node
 
     def print_list(self):
-        cur_node = self.head
+        cur_node = self._head
         while cur_node:
-            print(cur_node.data)
+            print(str(cur_node.word))
+            print(str(cur_node.definition))
             cur_node = cur_node.next
 
 
-
-
-
 def main():
-    ca = Cards_Set("")
+    ca = Cards_Set()
     ca.append(raw_input("Please input a word "), raw_input("Please input a definition "))
+    print(" ")
+    print("Here is the word with a definition")
     ca.print_list()
 
 
 main()
+
