@@ -16,7 +16,7 @@ class Cards_Set:
         return self._head
 
     def append(self):
-        x = raw_input("Do you want to add a word")
+        x = raw_input("Do you want to add a word ")
         while True:
             if x == "yes":
 
@@ -30,27 +30,26 @@ class Cards_Set:
                     while last_node.next:
                         last_node = last_node.next
                     last_node.next = new_node
-                x = raw_input("Do you want to add a word")
+                x = raw_input("Do you want to add a word ")
 
             elif x == "no":
                 self.print_list()
                 return
 
             else:
-                x = raw_input("please input yes or no")
+                x = raw_input("please input yes or no ")
 
     def print_list(self):
         cur_node = self._head
         while cur_node is not None:
             print"word: ", (str(cur_node.word))
-            print(str(cur_node.definition))
+            print"definition: ", (str(cur_node.definition))
             cur_node = cur_node.next
 
 
 def main():
     ca = Cards_Set()
     ca.append()
-    ca.print_list()
 
 
 main()
