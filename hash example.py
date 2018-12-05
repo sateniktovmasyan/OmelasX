@@ -1,3 +1,4 @@
+import random
 class Card:
     def __init__(self, word, definition):
         self.word = word
@@ -46,10 +47,35 @@ class Cards_Set:
             print"definition: ", (str(cur_node.definition))
             cur_node = cur_node.next
 
+    def randomelement(self):
+        if self._head == None:
+            print("no data inputed")
+        random.seed(2)
+        result = self._head.data
+        current = self._head
+        n = 2
+        while (current is not None):
+
+            # change result with probability 1/n
+            if (random.randrange(n) == 0):
+                result = current.definition
+
+                # Move to next node
+            current = current.next
+            n += 1
+
+        print "Randomly selected key is %d" % (result)
+
+
 
 def main():
     ca = Cards_Set()
-    ca.append()
+    mode = raw_input("if want to add write 1 ")
+    while True:
+        if mode == "1":
+            ca.append()
+        else:
+            ca.randomelement()
 
 
 main()
