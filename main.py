@@ -22,7 +22,7 @@ class Cards_Set:
                 word = raw_input("Please input a word ")
                 definition = raw_input("Please input a definition ")
                 if (self.contains(word)):
-                    print "Word Exists"
+                    print ("Word Exists" + definition)
                 new_node = Card(word, definition)
                 if self._head is None:
                     self._head = new_node
