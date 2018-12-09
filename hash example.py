@@ -20,6 +20,11 @@ class Cards_Set:
                 if (self.contains(word)):
                     print ("Word Exists")
                     print(word, definition)
+                    answer = raw_input("if want to delete it type yes")
+                    if answer == "yes":
+                        self.deleteword(answer)
+                    else:
+                        self.changeword(answer)
                     print("add another one")
                     self.addNewCards()
                 new_node = Card(word, definition)
@@ -44,6 +49,10 @@ class Cards_Set:
                     print("please input valid answer ")
             else:
                 x = raw_input("please input yes or no ")
+
+    def changeword(self,word):
+        temp = self._head
+
 
     def deleteword(self, word):
         temp = self._head
