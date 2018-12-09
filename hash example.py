@@ -1,3 +1,5 @@
+import random
+
 class Card:
     def __init__(self, word, definition):
         self.word = word
@@ -8,11 +10,6 @@ class Cards_Set:
     def __init__(self):
         self._head = None
         self.number = 0
-
-    def sethead(self):
-        return self._head
-    def gethead(self):
-        return self._head
 
     def addNewCards(self):
         x = raw_input("Do you want to add a word ")
@@ -48,38 +45,20 @@ class Cards_Set:
             else:
                 x = raw_input("please input yes or no ")
 
-    def remove1(self, node_value):
-        previous_node = None
-        current_node = self.__head
-        while current_node:
-            if current_node.data == node_value:
-                if previous_node:
-                    previous_node.next = current_node.next
-                else:
-                    self.__head = current_node.next
-                return True
+    def deleteword(self, word):
+        temp = self._head
+        if temp.word == word:
+            self._head = temp.next
+        else:
+            while temp is not None and temp.next.word != word:
+                temp = temp.next
+            temp.next = temp.next.next
 
-            previous_node = current_node
-            current_node = current_node.next
-
-    def remove(self, item_id):
-        current_id = 1
-        current_node = self.head
-        previous_node = None
-        while current_node is not None:
-            if current_id == item_id:
-                if previous_node is not None:
-                    previous_node.next = current_node.next
-                else:
-                    self.head = current_node.next
-                    return
-            previous_node = current_node
-            current_node = current_node.next
-            current_id = current_id + 1
-        return
 
     def randomcard(self):
-        print(self.getNth(1))
+        len = self.list_length()
+        index = random.randint(1,len)
+        print(self.getNth(index))
 
 
     def getNth(self, index):
@@ -88,14 +67,14 @@ class Cards_Set:
         while (current):
             if (count == index):
                 return current.word
-            count += 1
+
+            count = count + 1
             current = current.next
-        return 0
+        return 0 # smth strange
 
     def list_length(self):
         count = 0
-        current_node = self.__head
-
+        current_node = self._head
         while current_node is not None:
             count = count + 1
             current_node = current_node.next
@@ -128,7 +107,7 @@ class Cards_Set:
         while cur_node is not None:
             print"word: ", (str(cur_node.word))
             print"definition: ", (str(cur_node.definition))
-            print("*"*40)
+            print("*"*27)
             cur_node = cur_node.next
 
 
@@ -138,4 +117,3 @@ def main():
     ca.addNewCards()
 
 main()
-
