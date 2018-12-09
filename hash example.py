@@ -7,15 +7,14 @@ class Card:
 class Cards_Set:
     def __init__(self):
         self._head = None
+        self.number = 0
 
     def sethead(self):
         return self._head
-
     def gethead(self):
         return self._head
 
     def addNewCards(self):
-        number = 0
         x = raw_input("Do you want to add a word ")
         while True:
             if x == "yes":
@@ -23,6 +22,9 @@ class Cards_Set:
                 definition = raw_input("Please input a definition ")
                 if (self.contains(word)):
                     print ("Word Exists")
+                    print(word, definition)
+                    print("add another one")
+                    self.addNewCards()
                 new_node = Card(word, definition)
                 if self._head is None:
                     self._head = new_node
@@ -32,11 +34,17 @@ class Cards_Set:
                         last_node = last_node.next
                     last_node.next = new_node
                 x = raw_input("Do you want to add a word ")
-                number = number + 1
-            elif x == "no":
-                self.print_list()
-                return number
+                self.number = self.number + 1
 
+            elif x == "no":
+                a = raw_input("want to turn on learning mode input yes or no ")
+                if a == "yes":
+                    self.randomcard()
+                elif a == "no":
+                    print "here is your list"
+                    self.print_list()
+                else:
+                    print("please input valid answer ")
             else:
                 x = raw_input("please input yes or no ")
 
@@ -71,7 +79,18 @@ class Cards_Set:
         return
 
     def randomcard(self):
-        print("aa")
+        print(self.getNth(1))
+
+
+    def getNth(self, index):
+        current = self._head
+        count = 0
+        while (current):
+            if (count == index):
+                return current.word
+            count += 1
+            current = current.next
+        return 0
 
     def list_length(self):
         count = 0
@@ -88,7 +107,7 @@ class Cards_Set:
             self.addNewCards()
             return True
         else:
-            print("should be random")
+            self.randomcard()
             return False
 
     def len(self, node):
@@ -115,20 +134,8 @@ class Cards_Set:
 
 def main():
     ca = Cards_Set()
-    mode = raw_input("For learning mode type 1, for adding mode type 2 ")
-    while True:
-        if mode == "1":
-            if ca.is_empty:
-                print("List is empty ")
-            else:
-                ca.randomcard()
-            return
-        elif mode == "2":
-            ca.addNewCards()
-        else:
-            print("Invalid value please put 1 or 2 ")
-            return mode
-
+    print("At first add new words")
+    ca.addNewCards()
 
 main()
 
