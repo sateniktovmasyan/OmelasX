@@ -56,11 +56,32 @@ class Cards_Set:
 
 
     def randomcard(self):
-        len = self.list_length()
-        index = random.randint(0,list_len - 1)
-        print(self.getNth(index))
-
-
+    list_len = self.list_length()
+    index = random.randint(0,list_len - 1)
+    card = self.getNth(index)
+    x = raw_input("Do you know the definition for " + card.word+ "?")
+    while True:
+        if x == "yes":
+            y = raw_input("what is it ?")
+            while True:
+                if y == card.definition:
+                    print "you got it, Good job"
+                    print "lets move on"
+                    self.randomcard()
+                else:
+                    y = raw_input("Wrong answer, please try again")
+        elif x == "no":
+            z = raw_input("Do you want to find other words ? ")
+            while True:
+                if z == "yes":
+                    self.randomcard()
+                elif z == "no":
+                    print "have a nice day"
+                    exit()
+                else:
+                    z = raw_input("please enter yes or no")
+        else:
+            x = raw_input("please enter yes or no")
     def getNth(self, index):
         current = self._head
         count = 0
