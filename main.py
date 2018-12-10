@@ -57,7 +57,7 @@ class Cards_Set:
 
     def randomcard(self):
         len = self.list_length()
-        index = random.randint(1,len)
+        index = random.randint(0,list_len - 1)
         print(self.getNth(index))
 
 
