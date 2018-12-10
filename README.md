@@ -34,4 +34,3 @@ User has to add words firstly, after the program will allow to start learning/
 
 2.1 By word: Shows randomly a word saved before, user pauses to think about the definition, asks program to show the definition, answers whether he/she was right or wrong. Then, asks another randomly chosen word.
 
-2.2 By definition: Shows a definition, asks for user input, checks whether the given answer is correct or not, shows the results. Then asks another randomly chosen definition. 
